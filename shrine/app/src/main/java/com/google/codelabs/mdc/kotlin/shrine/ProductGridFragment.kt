@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.GridLayoutManager
+import com.google.codelabs.mdc.kotlin.shrine.network.ProductEntry
 import kotlinx.android.synthetic.main.shr_product_grid_fragment.view.*
 
 class ProductGridFragment : Fragment() {
@@ -41,6 +43,21 @@ class ProductGridFragment : Fragment() {
 
         // Setup Toolbar as ActionBar
         (activity as AppCompatActivity).setSupportActionBar(rootView.app_bar)
+
+        // Setup the RecyclerView
+        rootView.recycler_view.apply {
+            // Initialize a Vertical GridLayoutManager with 2 columns
+            layoutManager = GridLayoutManager(context, 2, GridLayoutManager.VERTICAL, false)
+            // Initialize the Adapter with the Product List entries
+            adapter = ProductCardRecyclerViewAdapter(ProductEntry.initProductEntryList(resources))
+            // All Items have fixed size
+            setHasFixedSize(true)
+            // Add Item Decoration for padding
+            addItemDecoration(ProductGridItemDecoration(
+                    resources.getDimensionPixelSize(R.dimen.shr_product_grid_spacing),
+                    resources.getDimensionPixelSize(R.dimen.shr_product_grid_spacing_small)
+            ))
+        }
 
         return rootView
     }

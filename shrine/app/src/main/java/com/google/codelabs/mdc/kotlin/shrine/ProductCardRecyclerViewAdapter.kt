@@ -17,7 +17,10 @@ class ProductCardRecyclerViewAdapter(private val productList: List<ProductEntry>
     }
 
     override fun onBindViewHolder(holder: ProductCardViewHolder, position: Int) {
-        // TODO: Put ViewHolder binding code here in MDC-102
+        if (position < productList.size) {
+            // When the position is valid, bind the corresponding ItemView with its data
+            holder.bind(productList[position])
+        }
     }
 
     override fun getItemCount(): Int {
