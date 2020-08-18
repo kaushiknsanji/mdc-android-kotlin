@@ -3,9 +3,7 @@ package com.google.codelabs.mdc.kotlin.shrine.staggeredgridlayout
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-
 import com.google.codelabs.mdc.kotlin.shrine.R
-import com.google.codelabs.mdc.kotlin.shrine.network.ImageRequester
 import com.google.codelabs.mdc.kotlin.shrine.network.ProductEntry
 
 /**
@@ -19,11 +17,10 @@ class StaggeredProductCardRecyclerViewAdapter(private val productList: List<Prod
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StaggeredProductCardViewHolder {
-        var layoutId = R.layout.shr_staggered_product_card_first
-        if (viewType == 1) {
-            layoutId = R.layout.shr_staggered_product_card_second
-        } else if (viewType == 2) {
-            layoutId = R.layout.shr_staggered_product_card_third
+        val layoutId = when (viewType) {
+            1 -> R.layout.shr_staggered_product_card_second
+            2 -> R.layout.shr_staggered_product_card_third
+            else -> R.layout.shr_staggered_product_card_first
         }
 
         val layoutView = LayoutInflater.from(parent.context).inflate(layoutId, parent, false)
@@ -32,10 +29,8 @@ class StaggeredProductCardRecyclerViewAdapter(private val productList: List<Prod
 
     override fun onBindViewHolder(holder: StaggeredProductCardViewHolder, position: Int) {
         if (productList != null && position < productList.size) {
-            val product = productList[position]
-            holder.productTitle.text = product.title
-            holder.productPrice.text = product.price
-            ImageRequester.setImageFromUrl(holder.productImage, product.url)
+            // When the position is valid, bind the corresponding ItemView with its data
+            holder.bind(productList[position])
         }
     }
 

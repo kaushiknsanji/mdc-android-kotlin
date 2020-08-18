@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import com.google.codelabs.mdc.kotlin.shrine.network.ProductEntry
+import com.google.codelabs.mdc.kotlin.shrine.staggeredgridlayout.StaggeredProductCardRecyclerViewAdapter
 import kotlinx.android.synthetic.main.shr_product_grid_fragment.view.*
 
 class ProductGridFragment : Fragment() {
@@ -46,10 +47,23 @@ class ProductGridFragment : Fragment() {
 
         // Setup the RecyclerView
         rootView.recycler_view.apply {
-            // Initialize a Vertical GridLayoutManager with 2 columns
-            layoutManager = GridLayoutManager(context, 2, GridLayoutManager.VERTICAL, false)
+            // Initialize a Horizontal GridLayoutManager with 2 columns
+            layoutManager = GridLayoutManager(context, 2, GridLayoutManager.HORIZONTAL, false).apply {
+                // Initialize the number of spans occupied by each item dynamically
+                spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
+                    /**
+                     * Returns the number of span occupied by the item at `position`.
+                     *
+                     * @param position The adapter position of the item
+                     * @return The number of spans occupied by the item at the provided position
+                     */
+                    override fun getSpanSize(position: Int): Int {
+                        return if (position % 3 == 2) 2 else 1
+                    }
+                }
+            }
             // Initialize the Adapter with the Product List entries
-            adapter = ProductCardRecyclerViewAdapter(ProductEntry.initProductEntryList(resources))
+            adapter = StaggeredProductCardRecyclerViewAdapter(ProductEntry.initProductEntryList(resources))
             // All Items have fixed size
             setHasFixedSize(true)
             // Add Item Decoration for padding

@@ -1,15 +1,25 @@
 package com.google.codelabs.mdc.kotlin.shrine.staggeredgridlayout
 
 import android.view.View
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-
-import com.android.volley.toolbox.NetworkImageView
-import com.google.codelabs.mdc.kotlin.shrine.R
+import com.google.codelabs.mdc.kotlin.shrine.network.ImageRequester
+import com.google.codelabs.mdc.kotlin.shrine.network.ProductEntry
+import kotlinx.android.synthetic.main.shr_product_card.view.*
 
 class StaggeredProductCardViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-    var productImage: NetworkImageView = itemView.findViewById(R.id.product_image)
-    var productTitle: TextView = itemView.findViewById(R.id.product_title)
-    var productPrice: TextView = itemView.findViewById(R.id.product_price)
+    /**
+     * Method that binds the Card [itemView] at position with the corresponding [productEntry] data.
+     */
+    fun bind(productEntry: ProductEntry) {
+        itemView.apply {
+            // Download and set the Image from the Product URL
+            ImageRequester.setImageFromUrl(product_image, productEntry.url)
+            // Set the Product Title
+            product_title.text = productEntry.title
+            // Set the Product Price
+            product_price.text = productEntry.price
+        }
+    }
+
 }
