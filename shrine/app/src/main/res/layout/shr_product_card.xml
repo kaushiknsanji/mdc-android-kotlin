@@ -29,17 +29,19 @@
             <!-- Title -->
             <TextView
                 android:id="@+id/product_title"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/shr_product_title"
-                android:textAppearance="?attr/textAppearanceHeadline6" />
+                android:layout_gravity="center_horizontal"
+                android:textAppearance="?attr/textAppearanceSubtitle2" />
 
             <!-- Secondary Text -->
             <TextView
                 android:id="@+id/product_price"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/shr_product_description"
+                android:layout_gravity="center_horizontal"
                 android:textAppearance="?attr/textAppearanceBody2" />
         </LinearLayout>
     </LinearLayout>
