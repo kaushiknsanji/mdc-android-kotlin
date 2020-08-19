@@ -10,6 +10,15 @@
         <item name="android:textColorPrimary">@color/textColorPrimary</item>
     </style>
 
+    <!-- Autumn Theme for the App -->
+    <style name="Theme.Shrine.Autumn" parent="Theme.Shrine">
+        <item name="colorPrimary">#FFCF44</item>
+        <item name="colorPrimaryDark">#FD9725</item>
+        <item name="colorAccent">#FD9725</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="colorError">#FD9725</item>
+    </style>
+
     <!-- Toolbar style -->
     <style name="Widget.Shrine.Toolbar" parent="Widget.AppCompat.Toolbar">
         <item name="android:background">?attr/colorAccent</item>
@@ -25,9 +34,8 @@
     <!-- Layout style for the Input fields in the Login screen -->
     <style name="Widget.Shrine.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <item name="hintTextAppearance">@style/TextAppearance.Shrine.TextInputLayout.HintText</item>
-        <item name="hintTextColor">?android:attr/textColorPrimary</item>
+        <item name="android:textColorHint">?android:attr/colorPrimaryDark</item>
         <item name="android:paddingBottom">8dp</item>
-        <item name="boxStrokeColor">@color/textInputOutlineColor</item>
     </style>
 
     <!-- Hint Text style for the Input fields in the Login screen -->

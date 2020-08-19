@@ -12,7 +12,7 @@
         android:label="@string/shr_app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Shrine">
+        android:theme="@style/Theme.Shrine.Autumn">
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
