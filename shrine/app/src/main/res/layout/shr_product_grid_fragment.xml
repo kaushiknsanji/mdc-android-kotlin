@@ -6,12 +6,26 @@
     android:layout_height="match_parent"
     tools:context=".ProductGridFragment">
 
+    <!-- Backdrop layer for categorized filter menu -->
+    <LinearLayout
+        style="@style/Widget.Shrine.Backdrop"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingTop="100dp"
+        android:paddingBottom="100dp">
+
+        <!-- Merged and included layout of the categorized filter menu -->
+        <include layout="@layout/shr_backdrop" />
+
+    </LinearLayout>
+
     <!-- Top App Bar -->
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:elevation="0dp"
-        >
+        app:elevation="0dp">
 
         <!-- Toolbar -->
         <androidx.appcompat.widget.Toolbar
@@ -32,6 +46,7 @@
         android:background="@color/productGridBackgroundColor"
         android:fillViewport="true"
         android:elevation="8dp"
+        android:visibility="gone"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:targetApi="lollipop">
 

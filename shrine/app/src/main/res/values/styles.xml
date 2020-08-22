@@ -44,7 +44,7 @@
         </item>
     </style>
 
-    <!-- Style for the CANCEL Button in the Login screen -->
+    <!-- Style for the CANCEL Button in the Login screen, as well as the TextButtons on the Backdrop menu -->
     <style name="Widget.Shrine.Button.TextButton" parent="Widget.MaterialComponents.Button.TextButton">
         <item name="android:textColor">?android:attr/textColorPrimary</item>
     </style>
@@ -54,6 +54,11 @@
         <item name="textAllCaps">true</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style>
+
+    <!-- Style for the Backdrop layer of categorized filter menu -->
+    <style name="Widget.Shrine.Backdrop" parent="">
+        <item name="android:background">?attr/colorAccent</item>
     </style>
 
 </resources>
