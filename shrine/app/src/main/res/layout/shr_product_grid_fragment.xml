@@ -40,13 +40,13 @@
 
     <!-- Nested Content ScrollView -->
     <androidx.core.widget.NestedScrollView
+        android:id="@+id/product_grid"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="56dp"
         android:background="@color/productGridBackgroundColor"
         android:fillViewport="true"
         android:elevation="8dp"
-        android:visibility="gone"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:targetApi="lollipop">
 

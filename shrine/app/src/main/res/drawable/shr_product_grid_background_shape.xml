@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
 
-
+    <!-- Layer for shadow over the top left cut -->
     <item
         android:width="42dp"
         android:height="42dp"
@@ -21,6 +21,7 @@
         </rotate>
     </item>
 
+    <!-- Layer for surface with the top left cut -->
     <item
         android:width="42dp"
         android:height="42dp"
@@ -36,7 +37,8 @@
         </rotate>
     </item>
 
-
+    <!-- Layer for shadow over the top edge filling the entire width of the screen,
+    placed adjacent to the top corner of the top left cut -->
     <item
         android:width="1000dp"
         android:height="42dp"
@@ -52,7 +54,8 @@
         </shape>
     </item>
 
-
+    <!-- Layer for surface filling the entire width and height of the screen,
+    placed below the top corner of the top left cut -->
     <item
         android:width="1000dp"
         android:height="1000dp"
@@ -63,8 +66,10 @@
         </shape>
     </item>
 
+    <!-- Layer for surface filling the entire width and height of the screen,
+    placed below the bottom corner of the top left cut -->
     <item
-        android:width="1000dp"
+        android:width="1029.5dp"
         android:height="1000dp"
         android:top="33dp">
         <shape>

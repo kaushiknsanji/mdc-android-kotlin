@@ -6,7 +6,9 @@
     <color name="textColorPrimary">#442C2E</color>
     <color name="toolbarIconColor">@color/textColorPrimary</color>
     <color name="loginPageBackgroundColor">#FFFFFF</color>
-    <color name="productGridBackgroundColor">#FFFFFF</color>
+
+    <!-- Background Color of Products Grid -->
+    <color name="productGridBackgroundColor">#FFFBFA</color>
 
     <!-- Box Color for Text Input fields of the Login screen -->
     <color name="textInputOutlineColor">#FBB8AC</color>

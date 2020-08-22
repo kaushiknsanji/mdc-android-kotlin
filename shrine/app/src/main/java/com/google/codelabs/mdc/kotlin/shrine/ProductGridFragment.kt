@@ -1,8 +1,10 @@
 package com.google.codelabs.mdc.kotlin.shrine
 
+import android.os.Build
 import android.os.Bundle
 import android.view.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import com.google.codelabs.mdc.kotlin.shrine.network.ProductEntry
@@ -71,6 +73,11 @@ class ProductGridFragment : Fragment() {
                     resources.getDimensionPixelSize(R.dimen.shr_product_grid_spacing),
                     resources.getDimensionPixelSize(R.dimen.shr_product_grid_spacing_small)
             ))
+        }
+
+        // Set cut corner background for API 23+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            rootView.product_grid.background = ContextCompat.getDrawable(context!!, R.drawable.shr_product_grid_background_shape)
         }
 
         return rootView
