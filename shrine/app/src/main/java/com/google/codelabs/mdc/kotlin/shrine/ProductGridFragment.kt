@@ -3,6 +3,7 @@ package com.google.codelabs.mdc.kotlin.shrine
 import android.os.Build
 import android.os.Bundle
 import android.view.*
+import android.view.animation.AccelerateDecelerateInterpolator
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -46,6 +47,15 @@ class ProductGridFragment : Fragment() {
 
         // Setup Toolbar as ActionBar
         (activity as AppCompatActivity).setSupportActionBar(rootView.app_bar)
+        // Register a click listener on the Navigation icon to reveal the Backdrop Navigation menu
+        // using appropriate motion
+        rootView.app_bar.setNavigationOnClickListener(
+                NavigationIconClickListener(
+                        context!!,
+                        rootView.product_grid,
+                        AccelerateDecelerateInterpolator()
+                )
+        )
 
         // Setup the RecyclerView
         rootView.recycler_view.apply {
