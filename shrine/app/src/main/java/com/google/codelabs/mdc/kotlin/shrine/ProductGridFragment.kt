@@ -53,7 +53,11 @@ class ProductGridFragment : Fragment() {
                 NavigationIconClickListener(
                         context!!,
                         rootView.product_grid,
-                        AccelerateDecelerateInterpolator()
+                        AccelerateDecelerateInterpolator(),
+                        // Icon shown when the Backdrop menu can be revealed
+                        ContextCompat.getDrawable(context!!, R.drawable.shr_branded_menu),
+                        // Icon shown when the Backdrop menu can be concealed
+                        ContextCompat.getDrawable(context!!, R.drawable.shr_close_menu)
                 )
         )
 
